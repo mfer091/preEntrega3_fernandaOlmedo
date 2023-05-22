@@ -1,5 +1,5 @@
 
-let carrito = [] ///aqui iran los items del carrito
+let carrito = []
 const tabla = document.querySelector("#itemsTabla");
 const btnAgregar = document.querySelector("#agregar");
 const btnVaciar = document.querySelector("#vaciar");
@@ -16,8 +16,8 @@ function traerItemsCarrito() {
 }
 
 btnAgregar.addEventListener("submit", (e) => {
-e.preventDefault(); ///evito el refresque
-const productoSeleccionado = stock[+selectProductos.value]; ///obtengo el producto elegido
+e.preventDefault();
+const productoSeleccionado = stock[+selectProductos.value];
 const indiceProducto = carrito.findIndex((item) => { 
     return item.producto.nombre == productoSeleccionado.nombre});
 if (indiceProducto != -1)
@@ -29,7 +29,7 @@ if (indiceProducto != -1)
 }
 
 actualizarTablaCarrito();
-localStorage.setItem("carrito", JSON.stringify(carrito)); //actualizo el carrito en el localStorage
+localStorage.setItem("carrito", JSON.stringify(carrito));
 });
 
 function actualizarTablaCarrito() {
@@ -42,9 +42,9 @@ function actualizarTablaCarrito() {
 }
 
 function newRow(item) {
-    const row = document.createElement("tr"); ///creo la fila
+    const row = document.createElement("tr"); 
     let td = document.createElement("td");
-    const posCarrito = carrito.indexOf(item); ///posicion del item en el carrito
+    const posCarrito = carrito.indexOf(item);
 
     td.classList.add("tituloSign");
     td.textContent = item.producto.nombre;
@@ -73,10 +73,8 @@ function newRow(item) {
     td = document.createElement("td")
     td.appendChild(btnEliminar);
     row.appendChild(td);
-    tabla.appendChild(row); ///le agrego al tbody una nueva fila
+    tabla.appendChild(row);
     btnVaciar.removeAttribute("disabled");
-
-    ///calculo el total que tengo ahora
 
     total.innerText = "$ " + carrito.reduce((acumulador,item) => acumulador + item.producto.precio * item.cantidad,0);
 }

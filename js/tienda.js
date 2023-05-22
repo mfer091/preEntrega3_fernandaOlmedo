@@ -1,5 +1,5 @@
 
-let stock = [] ///aqui iran los productos
+let stock = []
 const selectProductos = document.querySelector("#productos");
 
 

@@ -1,14 +1,3 @@
-// Cambio de modos Light o Dark
-
-/* const cambiaModoButton = document.querySelector(".botonLD");
-const body = document.querySelector("body");
-
-cambiaModoButton.addEventListener("click", cambioModo);
-
-function cambioModo() {
-    body.classList.toggle("fondoDark");
-} */
-
 const cambiaModoButton = document.querySelector(".botonLD");
 const body = document.querySelector("body");
 
